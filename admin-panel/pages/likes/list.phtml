@@ -1,0 +1,16 @@
+<tr id="list-<?php echo($wo['id']) ?>">
+  <td><?php echo($wo['id']) ?></td>
+  <td id="sub_name_<?php echo($wo['id']) ?>"><?php echo($wo['title']) ?></td>
+  <td>
+      <?php $admin_permission =  CheckAdminPermission($wo['user']['role_id'], "edit_likes"); ?>
+      <?php if($admin_permission == true) {?>
+        <button class="btn bg-cyan waves-effect waves-light"onclick="edit_category('<?php echo($wo['id']) ?>')">EDIT</button>
+      <?php } ?>
+      <?php $admin_permission =  CheckAdminPermission($wo['user']['role_id'], "delete_likes"); ?>
+      <?php if($admin_permission == true) {?>
+        <?php if ($wo['category_lang_key'] != 'other') { ?>
+            <button class="btn btn-danger waves-effect waves-light delete-content" data-id="<?php echo($wo['id']) ?>">DELETE</button>
+        <?php } ?>
+      <?php } ?>
+  </td>
+</tr>
